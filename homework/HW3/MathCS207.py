@@ -1,11 +1,11 @@
-def add(a,b):
-    return a + b
+def add(**kwargs):
+    return kwargs['a'] + kwargs['b']
     
-def subtract(a,b):
-    return a - b
+def subtract(**kwargs):
+    return kwargs['a'] - kwargs['b']
     
 def multiply(a,b):
-    return a*b
+    return kwargs['a']*kwargs['b']
 
 def divide(a,b):
-    return a/b
+    return kwargs['a']/kwargs['b']
