@@ -4,11 +4,16 @@ class RealExtensions:
     def __init__(self, a, b):
         self.a = a
         self.b = b
+        self.__number = (a, b)
 
 class Complex(RealExtensions):
     def __init__(self, real, imag):
         self.real = real
         self.imag = imag
+
+    def number(self):
+        super().__init__(self.real, self.imag)
+        self.__number = [self.real, self.imag]
     
     def _magnitude(self):
         return np.sqrt(self.real**2.0 + self.imag**2.0)

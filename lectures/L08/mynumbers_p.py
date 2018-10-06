@@ -5,7 +5,7 @@ class RealExtensions:
         self.a = a
         self.b = b
 
-class Complex(RealExtensions):
+class _Complex(RealExtensions):
     def __init__(self, real, imag):
         self.real = real
         self.imag = imag
