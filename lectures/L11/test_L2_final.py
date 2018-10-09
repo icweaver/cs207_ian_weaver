@@ -1,9 +1,9 @@
 import pytest
-import L2
+import L2_final
 
 def test_L2_types():
     with pytest.raises(TypeError):
-        L2.L2([-3, 'c'])
+        L2_final.L2([-3, 'c'])
         
     with pytest.raises(ValueError):
-        L2.L2([3, 4], [1])
+        L2_final.L2([3, 4], [1])
