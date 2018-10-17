@@ -1,0 +1,4 @@
+[
+  "tests/test_modules.py::test_modules_result",
+  "tests/test_modules.py::test_modules_types"
+]

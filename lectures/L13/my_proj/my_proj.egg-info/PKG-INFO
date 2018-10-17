@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: my-proj
+Version: 0.0.6
+Summary: A small example package
+Home-page: https://github.com/pypa/sampleproject
+Author: Ian Weaver
+Author-email: iweaver@cfa.harvard.edu
+License: UNKNOWN
+Description: # My Proj
+        
+        This is a toy package for computing complex numbers and stuff
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown

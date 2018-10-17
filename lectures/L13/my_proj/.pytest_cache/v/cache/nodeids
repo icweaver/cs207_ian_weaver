@@ -1,0 +1,18 @@
+[
+  "my_proj/modules.py::my_proj.modules.Complex.__add__",
+  "my_proj/modules.py::my_proj.modules.Complex.__mul__",
+  "my_proj/modules.py::my_proj.modules.Complex.__repr__",
+  "my_proj/modules.py::my_proj.modules.Complex.__rsub__",
+  "my_proj/modules.py::my_proj.modules.Complex.__rtruediv__",
+  "my_proj/modules.py::my_proj.modules.Complex.__sub__",
+  "my_proj/modules.py::my_proj.modules.Complex.__truediv__",
+  "my_proj/modules.py::my_proj.modules.Complex._ang",
+  "my_proj/modules.py::my_proj.modules.Complex._mag",
+  "my_proj/modules.py::my_proj.modules.Complex.conj",
+  "my_proj/tests/test_modules.py::test_m__init__result",
+  "my_proj/tests/test_modules.py::test_m__init__types",
+  "my_proj/tests/test_modules.py::test_m_conj_result",
+  "my_proj/tests/test_modules.py::test_m_conj_types",
+  "my_proj/tests/test_modules.py::test_m__add__result",
+  "my_proj/tests/test_modules.py::test_m__add__types"
+]

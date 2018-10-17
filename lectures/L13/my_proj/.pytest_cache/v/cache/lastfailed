@@ -1,0 +1,4 @@
+{
+  "my_proj/modules.py::my_proj.modules.Complex._conj": true,
+  "my_proj/tests/test_modules.py::test_modules_attr": true
+}
