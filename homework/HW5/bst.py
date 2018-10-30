@@ -6,6 +6,8 @@ class BinaryTree:
         self.r = None # points right
         
     def insert(self, val):
+        """ Inserts node into binary search tree
+        """
         # create child node to be inserted
         child = BinaryTree()
         child.val = val
@@ -32,10 +34,14 @@ class BinaryTree:
                         self = self.r
     
     def remove(self, val):
-        # to "delete" a node, this actually replaces the node's value with 
-        # its appropriate child's value, then connects this overwritten node to 
-        # its former grandchildren before erasing the original child.
+        """ Deletes node in three steps. 
         
+        1) Replaces the node's value with its appropriate child's value
+        
+        2) Connects this overwritten node to its former grandchildren 
+        
+        3) Erases the original child. 
+        """
         # move to node to be deleted
         if self.val == val:
             pass # root node handled in Case 3
@@ -82,6 +88,12 @@ class BinaryTree:
             print('something went wrong')
             
     def getValues(self, depth):
+        """ Prints row of binary search tree at specified depth.
+
+            ex) getValues(2) returns a list, where each element is the
+            corresponding node (including blank spaces) on the 
+            second row (zero-indexed)
+        """
         if depth == 0: # easiest case
             return [self.val]
         
