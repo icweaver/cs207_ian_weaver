@@ -121,3 +121,22 @@ class BinaryTree:
                     
             row_current = row_next # move down a level
         return row_print
+
+    def max_height(self, n):
+        # base case
+        if n is None:
+            return 0
+        
+        else:
+            # recursively return depth below current node
+            depth_l = self.max_height(n.l)
+            depth_r = self.max_height(n.r)
+            
+            # the larger depth (+ 1 to include root level) is our max depth
+            if depth_l > depth_r:
+                return depth_l + 1
+            else:
+                return depth_r + 1
+
+    def __len__(self):
+        return self.max_height(self)

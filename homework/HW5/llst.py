@@ -14,6 +14,12 @@ class LinkedList():
     def __getitem__(self, index):
         node = self._headNode # create pointer
         
+        # catch user trying to getitem on empty list
+        try: node[index]
+        except IndexError:
+            print('trying to index empty list')
+
+        # catch user trying to get index outside of current list
         if (index+1) > len(self): # catch if index is out of bounds
             raise IndexError   
         
