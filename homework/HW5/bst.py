@@ -94,10 +94,13 @@ class BinaryTree:
             corresponding node (including blank spaces) on the 
             second row (zero-indexed)
         """
-        if depth == 0: # easiest case
+        if depth+1 > len(self):
+            m = f'specified depth larger than max tree height={len(self)}'
+            raise IndexError(m)
+
+        if depth == 0: # root case
             return [self.val]
         
-        # else
         row_current = [self] # will be replaced "row by row" in place
         for d in range(depth):
             row_print = [None]*2**(d+1) # reset row for next level
