@@ -46,15 +46,19 @@ class BinaryTree:
         if self.val == val:
             pass # root node handled in Case 3
         else:
-            while self.val != val:
-                if val < self.val:
-                    self = self.l
-                else:
-                    self = self.r
+            try:
+                while self.val != val:
+                    if val < self.val:
+                        self = self.l
+                    else:
+                        self = self.r
+            except AttributeError: # catch if val not in tree
+                print('Node not in tree, not going to do anything')
+                return
                        
         # Case 1: Node to delete has no children
         if (not self.l) and (not self.r):
-            self = None
+            self.val = None
     
         # Case 2: Node to delete has 1 child
         elif self.l and (not self.r):
