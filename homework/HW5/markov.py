@@ -1,6 +1,6 @@
 class Markov:
     def __init__(self):
-        pass
+        self.data = None
         
     def load_data(self, array):
         self.data = array
@@ -17,4 +17,10 @@ class Markov:
 
         before_idx = weather_names[previous_day]
         after_idx = weather_names[following_day]
-        return self.data[before_idx][after_idx]
+
+        try:
+            prob = self.data[before_idx][after_idx]
+            return prob
+        except TypeError: # catch if no data file loaded
+            error_msg = 'please load data file first with load_data method'
+            return error_msg
