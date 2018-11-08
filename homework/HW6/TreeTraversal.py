@@ -156,7 +156,7 @@ class DFSTraversal():
     
     # Change the traversal type
     def changeTraversalType(self, traversalType):
-        return
+        self.traversalType = traversalType
         
     #This is the initialization of an iterator
     def __iter__(self):
@@ -165,42 +165,51 @@ class DFSTraversal():
     # This is called in the iterator for getting the next value
     def __next__(self): 
         try:
-            if self.traversalType.name == 'PREORDER':
-                result = self.preorder(self.tree)[self.index]
+            # get sorted list of nodes
+            if self.traversalType.name == 'INORDER':
+                sorted_list = self.inorder(self.tree)
 
-            elif self.traversalType.name == 'INORDER':
-                result = self.inorder(self.tree)[self.index]
+            elif self.traversalType.name == 'PREORDER':
+                sorted_list = self.preorder(self.tree)
 
             elif self.traversalType.name == 'POSTORDER':
-                result = self.postorder(self.tree)[self.index]
+                sorted_list = self.postorder(self.tree)
 
             else:
                 raise KeyError('Must supply appropriate enum object')
 
+            # iterate through list or sorted nodes
+            result = sorted_list[self.index]
+
         except IndexError:
             raise StopIteration
 
-        self.index += 1
+        self.index += 1 # step over to the next
         return result
 
-    nodes = []
-    def inorder(self, bt, nodes=nodes):
-
-        if bt and bt.l:
-            self.inorder(bt.l)
-
-        nodes.append(bt.val)
-
-        if bt and bt.r:
-            self.inorder(bt.r)
+    # l ro r
+    def inorder(self, bt):
+        nodes = []
+        if bt:
+            nodes = self.inorder(bt.l)
+            nodes.append(bt.val)
+            nodes += self.inorder(bt.r)
         return nodes
 
+    # ro l r
     def preorder(self, bt):
-        # implement here
-        # bt is an instance of BinaryTree class from previous hw
-        return
+        nodes = []
+        if bt:
+            nodes.append(bt.val)
+            nodes += self.preorder(bt.l)
+            nodes += self.preorder(bt.r)
+        return nodes
 
+    # l r ro
     def postorder(self, bt):
-        # implement here
-        # bt is an instance of BinaryTree class from previous hw
-        return
+        nodes = []
+        if bt:
+            nodes = self.postorder(bt.l)
+            nodes += self.postorder(bt.r)
+            nodes.append(bt.val)
+        return nodes
