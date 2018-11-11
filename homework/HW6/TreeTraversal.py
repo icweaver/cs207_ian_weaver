@@ -1,5 +1,10 @@
+from enum import Enum
+class DFSTraversalTypes(Enum):
+    PREORDER = 1
+    INORDER = 2
+    POSTORDER = 3
+
 class BinaryTree: 
-    
     def __init__(self):
         self.val = None # parent node value
         self.l = None # points left
@@ -150,12 +155,13 @@ class BinaryTree:
 
 class DFSTraversal():
     def __init__(self, tree, traversalType):
-        self.index = 0
-        self.tree = tree
-        self.traversalType = traversalType
+        self.index = 0 # for iterating with __next__
+        self.tree = tree # bst object
+        self.traversalType = traversalType 
     
     # Change the traversal type
     def changeTraversalType(self, traversalType):
+        self.index = 0 # reset for iterator
         self.traversalType = traversalType
         
     #This is the initialization of an iterator
@@ -164,8 +170,8 @@ class DFSTraversal():
     
     # This is called in the iterator for getting the next value
     def __next__(self): 
+        # get specified sorted list of nodes
         try:
-            # get sorted list of nodes
             if self.traversalType.name == 'INORDER':
                 sorted_list = self.inorder(self.tree)
 
@@ -178,38 +184,39 @@ class DFSTraversal():
             else:
                 raise KeyError('Must supply appropriate enum object')
 
-            # iterate through list or sorted nodes
+            # iterate through list of sorted nodes
             result = sorted_list[self.index]
 
+        # terminate iteration
         except IndexError:
             raise StopIteration
 
         self.index += 1 # step over to the next
         return result
 
-    # l ro r
+    # l root r
     def inorder(self, bt):
         nodes = []
         if bt:
             nodes = self.inorder(bt.l)
-            nodes.append(bt.val)
+            nodes.append(bt)
             nodes += self.inorder(bt.r)
         return nodes
 
-    # ro l r
+    # root l r
     def preorder(self, bt):
         nodes = []
         if bt:
-            nodes.append(bt.val)
+            nodes.append(bt)
             nodes += self.preorder(bt.l)
             nodes += self.preorder(bt.r)
         return nodes
 
-    # l r ro
+    # l r root
     def postorder(self, bt):
         nodes = []
         if bt:
             nodes = self.postorder(bt.l)
             nodes += self.postorder(bt.r)
-            nodes.append(bt.val)
+            nodes.append(bt)
         return nodes
